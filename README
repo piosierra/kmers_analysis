@@ -1,0 +1,19 @@
+# Analysis to compare frequency of kmers on samples/ref
+
+Extract kmers with FastK. Requires using a named temp
+folder as HPC limits the size of the default one.
+
+Set all fa files on the current folder (TO UPDATE TO NAMED FOLDER)
+
+Check the unique kmers frequency distribution of a set of genomes:
+```
+for f in *.fa; do sbatch -c 8 -t 08:00:00 ukmers_check.sh -i $f; done
+```
+We will use k=17 as as the smaller k with significant information.
+Now we calculate the jaccard distance between each pair of genomes.
+
+```
+./pairwise_slurm.sh .
+```
+
+
