@@ -12,7 +12,7 @@ echo
 SECONDS=0
 g1=false
 output_folder=temp
-maxk=17
+maxk=21
 show_help=false 
 
 # read the options
@@ -54,7 +54,7 @@ fi
 mkdir -p $output_folder
 cd $output_folder
 
-gs1="${g1%.fa}"  # Removes .fa
+gs1="${g1%.fa*}"  # Removes .fa
 name1="${gs1##*/}"  # Removes path until filename
 
 echo
