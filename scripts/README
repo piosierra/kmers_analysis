@@ -15,5 +15,21 @@ Now we calculate the jaccard distance between each pair of genomes.
 ```
 ./pairwise_slurm.sh .
 ```
+With exit file and kmer size
+```
+scripts/pairwise_slurm.sh assemblies 21 results/15_genomes_k21
+```
+
+To check: use as distance the difference in frequencies of each kmer. This 
+might normalize for size while still counting for duplication events.
+
+Steps:
+
+1- Set up all the genomes in one folder (must be .fa.gz or .fasta.gz)
+2- Use kmers_batch_generator to generate the "all" files
+3- Use pairwise_slurm to obtain distances. Can be used incrementally with new genomes.
+4- Use dendograms.R to generate dendograms with the distances.
+
+
 
 
