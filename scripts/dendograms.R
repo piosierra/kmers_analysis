@@ -21,7 +21,9 @@ if ( is.null(opt$names) ) {
   q(status=1)
 }
 
+print("data")
 t <- read.table(opt$data)
+print("names")
 n <- read.table(opt$names)
 
 colnames(t) <- c("sample1", "sample2", "total", "common")
@@ -89,8 +91,8 @@ colnames(tr) <- sub("d.", "", colnames(tr))
 rownames(tr)[1] <- colnames(tr)[1]
 colnames(tr)[ncol(tr)] <- rownames(tr)[nrow(tr)]
 tr[is.na(tr)] <- 0
-png(paste(opt$data,".png",sep=""), height=3000)
-plot(hclust(as.dist(tr), method = "average"))
+png(paste(opt$data,".png",sep=""), height=2000)
+plot(hclust(as.dist(tr), method = "single"))
 dev.off()
 # library(ape)
 # plot(nj(as.dist(tr)))
