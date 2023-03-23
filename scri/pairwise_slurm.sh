@@ -10,7 +10,8 @@ f=($1/*.gz)
 echo $f
 for ((i = 0; i < ${#f[@]}; i++)); do 
       for ((j = i + 1; j < ${#f[@]}; j++)); do   
-            sbatch -c 8 -t 08:00:00 scripts/ukmers_distance -1 ${f[i]} -2 ${f[j]} -k $2 -o output -f $3;     
+            sbatch -c 4 -t 02:00:00 scri/ukmers_distance -1 ${f[i]} -2 ${f[j]} -f Ypotree4 -o results; 
+            # sleep .1s    
       done;
   done 
 
